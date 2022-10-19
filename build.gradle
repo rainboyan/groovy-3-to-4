@@ -1,0 +1,27 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url 'https://repo.gradle.org/gradle/libs-releases' }
+    }
+}
+
+apply plugin: "groovy"
+apply plugin: "idea"
+
+group 'com.rainboyan.groovy'
+version projectVersion
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url 'https://repo.gradle.org/gradle/libs-releases' }
+}
+
+dependencies {
+    if (groovyVersion.startsWith('3')) {
+        implementation "org.codehaus.groovy:groovy:$groovyVersion"
+    } else {
+        implementation "org.apache.groovy:groovy:$groovyVersion"
+    }
+}
